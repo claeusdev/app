@@ -7,6 +7,9 @@
 			.excerpt
 				All on a marketplace where people shop socially.
 
+			= form_with( url: search_path, method: :get, local: true) do |f|
+				= f.text_field :q, class: "homeSearch", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
+
 	%article.white
 		.wrapper
 			.section-header
@@ -28,7 +31,7 @@
 				Reach new customers and markets
 				.excerpt
 
-					Claeus surfaces emerging brands and products, every day. It's a place for product-loving enthusiasts find new products and awesome brands emerging in Africa and the world.
+					Claeus surfaces emerging brands and products, every day. It's a place for product-loving enthusiasts to find new products and awesome brands emerging in Africa and the world.
 				
 				= button_to "Start Selling", sell_path, method: :get, class: "button button-sexy"
 

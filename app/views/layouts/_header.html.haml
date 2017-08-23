@@ -7,10 +7,11 @@
 		
 		.navUserSection
 			.mainNav-userSection
-				.mainNav-desktopSearchContainer
-					.mainNavSearch-container
-						= form_with( url: search_path, method: :get, local: true) do |f|
-							= f.text_field :q, class: "mainNavSearch js-globalSearchInput", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
+				- unless current_page?root_path
+					.mainNav-desktopSearchContainer
+						.mainNavSearch-container
+							= form_with( url: search_path, method: :get, local: true) do |f|
+								= f.text_field :q, class: "mainNavSearch js-globalSearchInput", placeholder: "Search products, stores, tags ...", data: { behavior: 'autocomplete'}, id: "desktopSearchInput"
 						
 				.nav-action.show-search
 				.js-userNav.userNav
@@ -33,7 +34,7 @@
 								
 					- else
 						-# .menuNav-list
-						= link_to "Join", new_user_registration_path, class: "join-button"
+						= link_to "Open a store", new_user_registration_path, class: "join-button"
 						= link_to "Login", new_user_session_path
 
 			- if user_signed_in? && current_user.store.present?
